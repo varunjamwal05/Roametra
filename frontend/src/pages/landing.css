@@ -1,0 +1,207 @@
+/* ============================================
+   LANDING V2 LUXURY STYLES (THEME-AWARE)
+   ============================================ */
+:root {
+  /* LIGHT UXURY THEME */
+  --lux-bg: #f5f7fc;
+  --lux-card: rgba(255, 255, 255, 0.7);
+  --lux-border: rgba(108, 99, 255, 0.15);
+  --lux-text: #1a1b2e;
+  --lux-text-alt: #444863;
+  --lux-neon-1: rgba(108, 99, 255, 0.4);
+  --lux-neon-2: rgba(255, 101, 132, 0.4);
+  --lux-neon-3: rgba(67, 233, 123, 0.4);
+  --lux-nav-logo-1: #6c63ff;
+  --lux-nav-logo-2: #ff6584;
+  --lux-nav-link: #444863;
+  --lux-nav-link-hover: #1a1b2e;
+  --lux-nav-link-hover-bg: rgba(108, 99, 255, 0.08);
+}
+
+.dark {
+  /* DARK LUXURY THEME */
+  --lux-bg: #0a0514;
+  --lux-card: rgba(18, 12, 33, 0.65);
+  --lux-border: rgba(255, 255, 255, 0.08);
+  --lux-text: #ffffff;
+  --lux-text-alt: rgba(255,255,255,0.6);
+  --lux-neon-1: #6c63ff;
+  --lux-neon-2: #ff6584;
+  --lux-neon-3: #43e97b;
+  --lux-nav-logo-1: #ffffff;
+  --lux-nav-logo-2: #a5a5b0;
+  --lux-nav-link: rgba(255,255,255,0.7);
+  --lux-nav-link-hover: #ffffff;
+  --lux-nav-link-hover-bg: rgba(255,255,255,0.1);
+}
+
+body .landing-v2 {
+  background-color: var(--lux-bg);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(108, 99, 255, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(255, 101, 132, 0.05), transparent 25%);
+  color: var(--lux-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ── PREMIUM BUTTONS (THE "JEWELRY" VIBE) ── */
+.btn-premium {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 
+    0 4px 24px -1px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+.btn-premium::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.6s ease;
+}
+.btn-premium:hover::before {
+  left: 150%;
+}
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 32px -4px rgba(108, 99, 255, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    0 0 0 1px rgba(108, 99, 255, 0.5);
+}
+
+.btn-premium-text { position: relative; z-index: 1; }
+.btn-premium-icon {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, var(--lux-neon-1), var(--lux-neon-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s;
+}
+.btn-premium:hover .btn-premium-icon { transform: translateX(4px); }
+
+.btn-premium-large {
+  padding: 20px 48px;
+  font-size: 1.15rem;
+}
+
+.btn-premium-ghost {
+  display: inline-flex; padding: 16px 36px;
+  border-radius: 100px; color: rgba(255,255,255,0.7);
+  font-weight: 600; font-size: 1rem;
+  transition: all 0.3s;
+}
+.btn-premium-ghost:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ── GLOW ORBS (DYNAMIC BACKGROUNDS) ── */
+.relative-section { position: relative; }
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: 0;
+  opacity: 0.15;
+  animation: floatOrb 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.orb-primary {
+  width: 50vw; height: 50vw;
+  background: var(--lux-neon-1);
+  top: -10%; left: -10%;
+}
+.orb-secondary {
+  width: 40vw; height: 40vw;
+  background: var(--lux-neon-2);
+  bottom: -20%; right: -5%;
+}
+.orb-accent {
+  width: 35vw; height: 35vw;
+  background: var(--lux-neon-3);
+  top: 20%; left: -10%;
+}
+.orb-primary-right {
+  width: 45vw; height: 45vw;
+  background: var(--lux-neon-1);
+  top: 10%; right: -20%;
+}
+@keyframes floatOrb {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(30px) scale(1.1); }
+}
+
+/* ── ELEVATED CARDS (DESTINATIONS / HOW IT WORKS / FEATURES) ── */
+.landing-v2 .dest-card {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  border: 1px solid var(--lux-border);
+}
+.landing-v2 .dest-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(108, 99, 255, 0.4);
+  border-color: rgba(108, 99, 255, 0.3);
+}
+
+.landing-v2 .section-how { background: var(--lux-dark); }
+.landing-v2 .step-card,
+.landing-v2 .feature-v2-card,
+.landing-v2 .testimonial-card {
+  background: var(--lux-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--lux-border);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* Overriding typography for dark rich mode */
+.landing-v2 .step-title,
+.landing-v2 .feature-v2-title,
+.landing-v2 .dest-name {
+  color: var(--lux-text);
+  transition: color 0.4s ease;
+}
+.landing-v2 .step-desc,
+.landing-v2 .feature-v2-desc,
+.landing-v2 .testimonial-text {
+  color: var(--lux-text-alt);
+  transition: color 0.4s ease;
+}
+
+.landing-v2 .section-testimonials { background-color: var(--lux-bg); }
+.landing-v2 .footer-v2 {
+  background-color: var(--lux-bg);
+  border-top: 1px solid var(--lux-border);
+}
+
+/* ── NAVBAR LUXURY OVERRIDE ── */
+.landing-v2 .navbar {
+  background: var(--lux-bg);
+  backdrop-filter: blur(24px) saturate(150%);
+  border-bottom: 1px solid var(--lux-border);
+}
+.landing-v2 .navbar-logo {
+  background: linear-gradient(135deg, var(--lux-nav-logo-1), var(--lux-nav-logo-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.landing-v2 .nav-link { color: var(--lux-nav-link); transition: color 0.2s, background 0.2s; }
+.landing-v2 .nav-link:hover { color: var(--lux-nav-link-hover); background: var(--lux-nav-link-hover-bg); }

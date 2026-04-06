@@ -10,6 +10,7 @@ import expensesRoutes from './routes/expenses.routes.js';
 import votesRoutes from './routes/votes.routes.js';
 import itineraryRoutes from './routes/itinerary.routes.js';
 import packingRoutes from './routes/packing.routes.js';
+import uploadRoutes from './routes/upload.routes.js';
 import errorHandler from './middleware/errorHandler.js';
 
 connectDB();
@@ -31,6 +32,7 @@ app.use('/api/trips/:id/expenses', expensesRoutes);
 app.use('/api/trips/:id/votes', votesRoutes);
 app.use('/api/trips/:id/itinerary', itineraryRoutes);
 app.use('/api/trips/:id/packing', packingRoutes);
+app.use('/api/upload', uploadRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date() }));
